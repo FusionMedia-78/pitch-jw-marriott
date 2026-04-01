@@ -336,6 +336,85 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
+  /* ─── PRICING ─── */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+    align-items: start;
+  }
+  .pricing-card {
+    border: 1px solid var(--border);
+    padding: 2.5rem 2rem;
+    background: var(--bg-card);
+    position: relative;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .pricing-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 24px rgba(0,135,135,0.08);
+  }
+  .pricing-card.featured {
+    border-color: var(--accent);
+    background: var(--bg-card);
+  }
+  .pricing-card.featured::before {
+    content: 'Recommended';
+    position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+    font-family: var(--font-mono); font-size: 0.55rem; font-weight: 400;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--bg-primary); background: var(--accent);
+    padding: 0.3rem 0.9rem;
+  }
+  .pricing-tier {
+    font-family: var(--font-mono); font-size: 0.6rem; font-weight: 400;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1rem;
+  }
+  .pricing-name {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 1.35rem; line-height: 1.2; letter-spacing: -0.01em;
+    color: var(--text-primary); margin-bottom: 1.25rem;
+  }
+  .pricing-price {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(2rem, 3.5vw, 2.6rem); color: var(--text-primary);
+    line-height: 1; margin-bottom: 0.35rem;
+  }
+  .pricing-price span {
+    font-family: var(--font-body); font-size: 0.85rem;
+    font-weight: 400; color: var(--text-muted); letter-spacing: 0;
+  }
+  .pricing-cadence {
+    font-family: var(--font-mono); font-size: 0.58rem; font-weight: 400;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 2rem;
+  }
+  .pricing-divider {
+    width: 100%; height: 1px; background: var(--surface-subtle); margin-bottom: 2rem;
+  }
+  .pricing-features {
+    list-style: none; display: flex; flex-direction: column; gap: 0.75rem;
+  }
+  .pricing-features li {
+    font-family: var(--font-body); font-size: 0.88rem;
+    color: var(--text-secondary); line-height: 1.5;
+    display: flex; align-items: flex-start; gap: 0.65rem;
+  }
+  .pricing-features li::before {
+    content: '—';
+    font-family: var(--font-mono); font-size: 0.7rem;
+    color: var(--accent); flex-shrink: 0; margin-top: 0.1em;
+  }
+  .pricing-features li.muted { color: var(--text-muted); }
+  .pricing-features li.muted::before { color: var(--border-strong); }
+  .pricing-note {
+    margin-top: 2rem;
+    font-family: var(--font-body); font-size: 0.78rem;
+    color: var(--text-muted); line-height: 1.6; text-align: center;
+  }
+
   /* ─── RESPONSIVE ─── */
   @media (max-width: 768px) {
     .nav { padding: 0 1.25rem; }
@@ -345,6 +424,7 @@
     .photo-card.tall { grid-row: span 1; aspect-ratio: 4/3; }
     .stats { grid-template-columns: 1fr; gap: 2rem; padding: 3.5rem 2rem; }
     .services { grid-template-columns: 1fr; gap: 2rem; }
+    .pricing-grid { grid-template-columns: 1fr; }
     .section, .section-wide { padding: 4rem 1.5rem; }
   }
   @media (max-width: 480px) { .nav-links { display: none; } }
@@ -358,6 +438,7 @@
     <li><a href="#work">Work</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#microsites">Microsites</a></li>
+    <li><a href="#pricing">Pricing</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -386,14 +467,16 @@
   <img src="SWR-TUFTPH_SunsetWalk-HERO-RGB.webp" alt="JW Marriott Gold Coast Resort" style="width:100%;height:60vh;object-fit:cover;display:block;">
 </div>
 
-<section class="section reveal">
+<section class="section reveal" style="padding-left: 1rem; padding-right: 1rem;">
   <div class="rule rule--left"></div>
   <p class="eyebrow" style="margin-bottom: 1rem;">Who I Am</p>
   <h2 class="heading-lg">The CD who still <em>makes</em> things.</h2>
   <br>
-  <p class="body-sm">I'm David Paull — Creative Director and photographer based in Burleigh Heads. 20+ years of creative leadership across luxury venues, resort F&B, lifestyle campaigns, and brand positioning for national and international markets.</p>
+  <p class="body-sm" style="text-align: center;">I'm David Paull — Creative Director, photographer, and AI&#8209;workflow builder based in Burleigh Heads. I've spent 20+ years leading creative across luxury venues, resort F&amp;B, lifestyle campaigns, ecommerce, and brand positioning for national and international markets.</p>
   <br>
-  <p class="body-sm">My work for Village Roadshow Theme Parks alone spans 15 years, 6 parks, 30+ F&B outlets, 200+ campaigns, and a Lionsgate theme park build in China. I scaled their in-house creative studio from 4 to 18 — replacing all external agencies. I know what luxury F&B creative looks like at scale, and I know the Gold Coast.</p>
+  <p class="body-sm" style="text-align: center;">My work for Village Roadshow Theme Parks alone spans 15 years, 6 parks, 30+ F&amp;B outlets, 200+ campaigns, and a Lionsgate theme park build in China. I scaled their in&#8209;house creative studio from 4 to 18 — replacing all external agencies. I know what luxury F&amp;B creative looks like at scale, and I know the Gold Coast.</p>
+  <br>
+  <p class="body-sm" style="text-align: center;">Today I'm leaning hard into AI&#8209;assisted production — using it to spin up personalised micro&#8209;sites, campaign landing pages, and EDM creative in hours instead of weeks. That combination of senior creative direction, hands&#8209;on photography and design, and fast AI workflows is what I'm bringing to JW Marriott Gold Coast and its outlets.</p>
   <div class="tags">
     <span class="tag">Creative Direction</span>
     <span class="tag">F&B Photography</span>
@@ -504,6 +587,75 @@
     <img src="microsite-mockup.webp" alt="Microsite example — Chapter & Verse cocktail menu on mobile" style="width: 100%; display: block;">
     <p style="font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); padding: 0.75rem; text-align: center;">Microsite Mockup — Example Citrique or Lobby Lounge microsite</p>
   </div>
+</section>
+
+<section class="section reveal" id="pricing">
+  <div class="rule rule--left"></div>
+  <p class="eyebrow" style="margin-bottom: 1rem;">Investment</p>
+  <h2 class="heading-lg">Three ways to work <em>together.</em></h2>
+  <p class="body-text" style="margin-top: 1.25rem; max-width: 54ch;">Every engagement is tailored, but these tiers give you a clear starting point. All retainers are month-to-month with a 30-day notice period — no lock-in.</p>
+
+  <div class="pricing-grid reveal-stagger">
+
+    <!-- TIER 1 -->
+    <div class="pricing-card">
+      <p class="pricing-tier">Tier 01</p>
+      <h3 class="pricing-name">Foundations</h3>
+      <div class="pricing-price">$3,500 <span>AUD</span></div>
+      <p class="pricing-cadence">Per month + GST</p>
+      <div class="pricing-divider"></div>
+      <ul class="pricing-features">
+        <li>1 full-day shoot per month</li>
+        <li>Up to 40 edited hero images</li>
+        <li>Food, beverage &amp; venue coverage</li>
+        <li>Licensed for all digital channels</li>
+        <li>48-hr turnaround on selects</li>
+        <li class="muted">Campaign creative</li>
+        <li class="muted">AI microsite build</li>
+        <li class="muted">Brand strategy</li>
+      </ul>
+    </div>
+
+    <!-- TIER 2 — FEATURED -->
+    <div class="pricing-card featured">
+      <p class="pricing-tier">Tier 02</p>
+      <h3 class="pricing-name">Creative Partner</h3>
+      <div class="pricing-price">$6,500 <span>AUD</span></div>
+      <p class="pricing-cadence">Per month + GST</p>
+      <div class="pricing-divider"></div>
+      <ul class="pricing-features">
+        <li>2 full-day shoots per month</li>
+        <li>Up to 80 edited hero images</li>
+        <li>Food, beverage, venue &amp; lifestyle</li>
+        <li>Licensed for all channels incl. OOH</li>
+        <li>Campaign concepting &amp; direction</li>
+        <li>Social content calendar support</li>
+        <li>Art direction for paid media</li>
+        <li class="muted">AI microsite build</li>
+      </ul>
+    </div>
+
+    <!-- TIER 3 -->
+    <div class="pricing-card">
+      <p class="pricing-tier">Tier 03</p>
+      <h3 class="pricing-name">Full Studio</h3>
+      <div class="pricing-price">$10,500 <span>AUD</span></div>
+      <p class="pricing-cadence">Per month + GST</p>
+      <div class="pricing-divider"></div>
+      <ul class="pricing-features">
+        <li>Everything in Creative Partner</li>
+        <li>Unlimited digital licensing</li>
+        <li>AI microsite — up to 3 outlets</li>
+        <li>Ongoing content regeneration</li>
+        <li>Brand &amp; visual identity audit</li>
+        <li>Quarterly campaign strategy</li>
+        <li>Priority scheduling &amp; turnaround</li>
+        <li>Dedicated creative slack channel</li>
+      </ul>
+    </div>
+
+  </div>
+  <p class="pricing-note">Bespoke project scoping available — single shoots, campaign productions, and microsite builds can be quoted as standalone engagements.</p>
 </section>
 
 <section class="cta reveal" id="contact">
